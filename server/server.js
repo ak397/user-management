@@ -40,6 +40,7 @@ app.use('/', userRouter);  // This will handle /api/me
 app.use('/admin', adminRouter);
 app.use('/home', home);
 app.use('/auth', require('./routes/auth'));
+app.use('/', require('./routes/imageKit'));
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

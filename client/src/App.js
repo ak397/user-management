@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -7,6 +7,8 @@ import AdminDashboard from './components/AdminDashboard';
 import AuthSuccess from './components/AuthSuccess';
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
+import ImageUpload from './components/ImageUpload';
+
 
 function App() {
   return (
@@ -37,6 +39,16 @@ function App() {
                   </PrivateRoute>
                 }
               />
+
+              <Route 
+                path="/upload" 
+                element={
+                  <PrivateRoute allowedRoles={['user']}>
+                    <ImageUpload />
+                  </PrivateRoute>
+                }
+              />
+
               <Route 
                 path="/dashboard" 
                 element={

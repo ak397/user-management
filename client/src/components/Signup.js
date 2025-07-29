@@ -25,7 +25,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:5000";
+      const url = "http://localhost:3000";
       const response = await axios.post(`${url}/signup`, formData, {
         withCredentials: true,
       });

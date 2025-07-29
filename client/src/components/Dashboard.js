@@ -1,5 +1,7 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
+import ImageUpload from './ImageUpload';
+
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -12,7 +14,9 @@ const Dashboard = () => {
           <p className="text-gray-600">Welcome back, {user?.name}</p>
         </div>
 
-        <div className="bg-white shadow-sm rounded-lg p-6">
+        <ImageUpload/>
+
+        {/* <div className="bg-white shadow-sm rounded-lg p-6">
           <h2 className="text-xl font-bold mb-4">Your Profile</h2>
           <div className="space-y-4">
             {user?.picture && (
@@ -39,7 +43,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
