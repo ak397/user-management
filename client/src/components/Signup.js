@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useAuth } from "../context/AuthContext";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from 'react-icons/fc'; // Import Google icon
 
 const Signup = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -30,8 +28,8 @@ const Signup = () => {
         withCredentials: true,
       });
       console.log("Signup successful:", response.data);
-      login(response.data); // Log the user in after successful signup
-      navigate("/");
+      
+      navigate("/login");
     } catch (error) {
       console.error("Signup failed:", error.response?.data || error.message);
     }
